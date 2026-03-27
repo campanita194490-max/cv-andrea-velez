@@ -41,11 +41,22 @@ Mi enfoque principal es la **analítica de datos aplicada al negocio**: utilizo 
 ---
 
 ## 🚀 PROYECTOS DESTACADOS
-### **Dashboard Interactivo de E-commerce**
-Desarrollo de una aplicación web para el análisis de 5,000 registros de ventas.
-* **Tecnologías:** Python, Streamlit, Pandas.
-* **Impacto:** Visualización en tiempo real de tendencias de consumo y métricas clave.
-* 👉 [Explorar Proyecto en Vivo](https://dashboard-ecommerce-andrea-velez.streamlit.app/)
+
+### 📊 Dashboard E-commerce
+
+🔗 Aplicación: https://TU-APP.streamlit.app  
+🎥 Demo: https://youtu.be/dA3Kchg_cgA  
+
+### 📌 Descripción
+Desarrollo de una aplicación web para el análisis de más de 5,000 registros de ventas, enfocada en identificar patrones de consumo y apoyar la toma de decisiones estratégicas.
+
+### 🛠️ Tecnologías
+- Python
+- Pandas
+- Streamlit
+
+### 🎯 Impacto
+Visualización en tiempo real de tendencias de consumo y métricas clave para optimizar estrategias comerciales.
 
 ---
 

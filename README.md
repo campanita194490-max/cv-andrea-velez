@@ -49,6 +49,13 @@ Mi enfoque principal es la **analítica de datos aplicada al negocio**: utilizo 
 
 ### 📌 Descripción
 Desarrollo de una aplicación web para el análisis de más de 5,000 registros de ventas, enfocada en identificar patrones de consumo y apoyar la toma de decisiones estratégicas.
+import streamlit as st
+
+st.title("Mi App CV 🔥")
+st.markdown("Mira el demo completo en YouTube:")
+st.video("https://youtu.be/dA3Kchg_cgA")
+
+
 
 ### 🛠️ Tecnologías
 - Python

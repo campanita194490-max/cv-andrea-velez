@@ -40,27 +40,25 @@ Mi enfoque principal es la **analítica de datos aplicada al negocio**: utilizo 
 
 ---
 
-## 🚀 PROYECTOS DESTACADOS
+📊 Dashboard E-commerce
 
-### 📊 Dashboard E-commerce
+🔗 Aplicación: [Mi App CV](https://TU-APP.streamlit.app)  
+🎥 Demo: [YouTube](https://youtu.be/dA3Kchg_cgA)  
 
-🔗 Aplicación: https://TU-APP.streamlit.app  
-🎥 Demo: https://youtu.be/dA3Kchg_cgA  
+---
 
-### 📌 Descripción
+## 📌 Descripción
 Desarrollo de una aplicación web para el análisis de más de 5,000 registros de ventas, enfocada en identificar patrones de consumo y apoyar la toma de decisiones estratégicas.
-import streamlit as st
 
-st.title("Mi App CV 🔥")
-st.markdown("Mira el demo completo en YouTube:")
-st.video("https://youtu.be/dA3Kchg_cgA")
+---
 
-
-
-### 🛠️ Tecnologías
+## 🛠️ Tecnologías
 - Python
 - Pandas
 - Streamlit
+
+
+
 
 ### 🎯 Impacto
 Visualización en tiempo real de tendencias de consumo y métricas clave para optimizar estrategias comerciales.

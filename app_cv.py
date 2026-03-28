@@ -1,7 +1,13 @@
 import streamlit as st
-import os
-import glob
-import base64
+
+st.title("Andrea Vélez Perdomo")
+st.subheader("Mi CV 🔥")
+
+st.write("Bienvenida a mi aplicación")
+
+st.image("imagen1.png")
+
+st.video("https://youtu.be/dA3Kchg_cgA")
 
 # 📌 Configuración DEBE ir primero
 st.set_page_config(

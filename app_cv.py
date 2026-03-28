@@ -3,7 +3,14 @@ import os
 import glob
 import base64
 
-# 📌 Ruta base del proyecto
+# 📌 Configuración DEBE ir primero
+st.set_page_config(
+    page_title="CV - Andrea Vélez",
+    page_icon="📄",
+    layout="wide"
+)
+
+# 📌 Ruta base
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # 📷 FUNCIÓN PARA CARGAR IMAGEN COMO FONDO
@@ -11,45 +18,33 @@ def get_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-# 🔍 Buscar imagen de fondo automáticamente
+# 🔍 Buscar imagen de fondo
 fondo = glob.glob(os.path.join(BASE_DIR, "fondo.*"))
 
-# 1. Configuración de la página
-st.set_page_config(
-    page_title="CV - Andrea Vélez",
-    page_icon="📄",
-    layout="wide"
-)
-
-# 🎨 APLICAR FONDO (CORREGIDO)
+# 🎨 APLICAR FONDO (más seguro)
 if fondo:
-    fondo_base64 = get_base64(fondo[0])
+    try:
+        fondo_base64 = get_base64(fondo[0])
 
-    st.markdown(
-        f"""
-        <style>
-        .stApp {{
-            background-image: url("data:image/jpg;base64,{fondo_base64}");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }}
-
-        /* Capa blanca suave para mejorar lectura */
-        .main {{
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 20px;
-            border-radius: 10px;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+        st.markdown(
+            f"""
+            <style>
+            .stApp {{
+                background-image: url("data:image/jpg;base64,{fondo_base64}");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }}
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+    except:
+        st.warning("⚠️ Error cargando fondo")
 else:
-    st.warning("⚠️ No se encontró imagen de fondo (fondo.*)")
+    st.warning("⚠️ No se encontró imagen de fondo")
 
-# 2. Sidebar con contacto
+# ---------------- SIDEBAR ----------------
 with st.sidebar:
 
     imagenes = glob.glob(os.path.join(BASE_DIR, "foto.*"))
@@ -57,25 +52,25 @@ with st.sidebar:
     if imagenes:
         st.image(imagenes[0], width=150)
     else:
-        st.error("❌ No se encontró la imagen")
+        st.warning("⚠️ No se encontró foto")
 
-    st.write("📍 **Medellín, Colombia**")
+    st.write("📍 Medellín, Colombia")
 
     st.markdown("### 📩 Contacto")
     st.markdown("📧 campanita19449@hotmail.com")
     st.markdown("📧 campanita194490@gmail.com")
-    st.markdown("📞 **301 241 1168**")
+    st.markdown("📞 301 241 1168")
 
     st.divider()
-    st.write("✨ *Combinando 20 años de experiencia comercial con la potencia de la IA.*")
+    st.write("✨ 20 años de experiencia + IA")
 
-# 3. Encabezado profesional
+# ---------------- HEADER ----------------
 st.title("Andrea Vélez Perdomo")
-st.subheader("Data Science Trainee | Experta en Gestión Comercial & Ventas")
+st.subheader("Data Science Trainee | Gestión Comercial & Ventas")
 
-# 4. Tabs
+# ---------------- TABS ----------------
 tab1, tab2, tab3 = st.tabs([
-    "👤 Perfil y Experiencia",
+    "👤 Perfil",
     "🛠️ Habilidades",
     "🚀 Proyectos"
 ])
@@ -84,65 +79,46 @@ tab1, tab2, tab3 = st.tabs([
 with tab1:
     st.header("📝 Resumen Profesional")
     st.write("""
-    Profesional con más de 20 años de trayectoria sólida en el área comercial (EFICACIA, EXTRAS).
-    Actualmente cursando Ciencia de Datos e IA en la UdeA, uniendo la experiencia en ventas con el análisis de datos.
+    Profesional con más de 20 años en el área comercial.
+    Actualmente en formación en Ciencia de Datos e IA.
     """)
 
-    st.header("💼 Experiencia Laboral")
+    st.header("💼 Experiencia")
 
-    st.info("**Asesora Comercial / Soporte | EFICACIA (2017 – 2024)**")
-    st.write("- Gestión de bases de datos de clientes y manejo de CRM.")
+    st.info("EFICACIA (2017 – 2024)")
+    st.write("- Manejo de CRM y bases de datos")
 
-    st.info("**Asesora Comercial | EXTRAS (2006 – 2014)**")
-    st.write("- Liderazgo en ventas y cumplimiento constante de metas comerciales.")
+    st.info("EXTRAS (2006 – 2014)")
+    st.write("- Cumplimiento de metas comerciales")
 
 # ---------------- TAB 2 ----------------
 with tab2:
-    st.header("🛠️ Stack Tecnológico")
+    st.header("🛠️ Habilidades")
 
     col1, col2 = st.columns(2)
 
     with col1:
         st.write("**Datos e IA**")
-        st.code("""Python
-Pandas
-Streamlit
-SQL
-Machine Learning""")
+        st.code("Python\nPandas\nStreamlit\nSQL")
 
     with col2:
-        st.write("**Gestión y Diseño**")
-        st.code("""Excel Avanzado
-CRM
-Photoshop
-Ciberseguridad""")
+        st.write("**Gestión**")
+        st.code("Excel\nCRM\nPhotoshop")
 
 # ---------------- TAB 3 ----------------
 with tab3:
-    st.header("🚀 Portafolio de Proyectos")
+    st.header("🚀 Proyectos")
 
-    st.subheader("1. Dashboard de E-commerce")
-    st.write("Análisis interactivo de 5,000 registros de ventas en tiempo real.")
+    st.subheader("Dashboard E-commerce")
     st.link_button(
-        "Ver Dashboard en Vivo",
+        "Ver Dashboard",
         "https://dashboard-ecommerce-andrea-velez.streamlit.app/"
     )
 
     st.divider()
 
-    st.subheader("2. Proyecto de Ciberseguridad")
-    st.write("Demostración técnica de protocolos de seguridad y protección de activos digitales.")
+    st.subheader("Demo en Video")
 
-    videos = glob.glob(os.path.join(BASE_DIR, "VID*.mp4"))
-
-    if videos:
-        st.video(videos[0])
-    else:
-        st.warning("⚠️ No se encontró el video")
-
-    st.write("""
-    **Lo que logré en este proyecto:**
-    - Análisis de vulnerabilidades en sistemas de información.
-    - Aplicación de buenas prácticas para la protección de datos sensibles.
-    """)
-
+    # ❌ Quitamos videos pesados
+    # ✅ Usamos YouTube (MUY IMPORTANTE para Cloud)
+    st.video("https://youtu.be/dA3Kchg_cgA")
